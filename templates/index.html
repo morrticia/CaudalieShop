@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content%}
+<div class="carousel slide" id="carouselExample">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://a.storyblok.com/f/286013/1920x700/6f182137f8/top_banner_desktop_2405_bankhol.png/m/"
+                 class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://farmacievigorito.it/image/catalog/caudalie/caudalie-premiere-cru-banner-desktop.jpg"
+                 class="d-block w-100 h-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://cdn.shopify.com/s/files/1/0614/8810/3615/files/l_eau_-papier_PC-banner.jpg?v=1679547231"
+                 class="d-block w-100 h-100px" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        {% for product in products %}
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.text }}</p>
+                    <a href="/product/{{ product.id }}" class="btn btn-primary mb-2">Shop Now</a>
+                    <a href="/edit_product/{{ product.id }}" class="btn btn-primary mb-2">Edit Product</a>
+                    <a href="/delete_product/{{ product.id }}" class="btn btn-primary mb-2">Delete Product</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid text-white" style="background-color: #391E39; padding: 60px;">
+    <div class="container">
+        <h1 class="display-4">Discover our cults</h1>
+        <p class="lead">"Beauty from the vine. Effective and Clean. Natural and Sustainable."</p>
+        <p class="lead">Mathilde Thomas, Founder</p>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://a.storyblok.com/f/140198/700x600/2cf6f77728/spotlight-maskru.jpg/m/700x0"
+                     class="card-img-top" alt="Image description">
+                <div class="card-body">
+                    <h5 class="card-title">BANK HOLIDAY</h5>
+                    <p class="card-text">Enjoy 20% off everything*<br>(excluding sets and SPA Vouchers)<br>Code:
+                        BANKHOL24</p>
+                    <a href="#" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://a.storyblok.com/f/286013/700x600/b5d80af881/spotlight_new_2405_bankhol.jpg/m/700x0"
+                     class="card-img-top" alt="Image description">
+                <div class="card-body">
+                    <h5 class="card-title">PAMPERING OFFER</h5>
+                    <p class="card-text">Get a free mask of your choice*<br>when you spend 79€.<br>Code: MASK</p>
+                    <a href="#" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

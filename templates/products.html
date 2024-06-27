@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content%}
+<div class="jumbotron jumbotron-fluid text-white" style="background-color: #391E39; padding: 60px;">
+    <div class="container">
+        <h1 class="display-4">Products</h1>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        {% for product in products %}
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.text }}</p>
+                    <a href="/product/{{ product.id }}" class="btn btn-primary mb-2">Shop Now</a>
+                    <a href="/edit_product/{{ product.id }}" class="btn btn-primary mb-2">Edit Product</a>
+                    <a href="/delete_product/{{ product.id }}" class="btn btn-primary mb-2">Delete Product</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
